@@ -1,0 +1,12 @@
+version: "2"
+services:
+    web:
+        image: nginx:alpine
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+            - php
+        volumes:
+            - ./wwwroot:/wwwroot
+            - ./nginx/conf.d:/etc/nginx/conf.d:ro
